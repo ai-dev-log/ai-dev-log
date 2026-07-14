@@ -55,7 +55,18 @@ img { max-width: 100%; display: block; }
 .site-nav a:hover { color: var(--terracotta); }
 
 /* ---------- hero ---------- */
-.hero { padding: 5rem 2.5rem 3rem; }
+.hero {
+  padding: 5rem 2.5rem 3rem;
+  background: radial-gradient(120% 100% at 78% 15%, rgba(186, 158, 48, 0.10) 0%, rgba(255, 214, 224, 0.16) 38%, rgba(214, 231, 255, 0.12) 66%, rgba(255, 255, 255, 0) 100%);
+}
+.hero-inner {
+  display: flex; align-items: center; gap: 3.5rem;
+}
+.hero-text { flex: 1 1 auto; min-width: 0; }
+.hero-illustration { flex: 0 0 auto; }
+.hero-illustration img {
+  max-width: 300px; width: 100%; height: auto; margin: 0 auto;
+}
 .kicker {
   font-size: 0.75rem; letter-spacing: 0.08em; font-weight: 700;
   color: var(--gold); text-transform: uppercase; margin: 0 0 1.4rem;
@@ -75,6 +86,12 @@ h1 {
   font-variant-numeric: tabular-nums;
 }
 .stat .l { font-size: 0.72rem; color: var(--text-faint); margin-top: 0.2rem; letter-spacing: 0.02em; }
+
+@media (max-width: 760px) {
+  .hero-inner { flex-direction: column; align-items: stretch; gap: 2.2rem; }
+  .hero-illustration { order: 2; align-self: center; }
+  .hero-illustration img { max-width: 190px; }
+}
 
 /* ---------- gallery controls ---------- */
 .gallery-section { padding: 1rem 2.5rem 5rem; }
