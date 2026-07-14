@@ -1,0 +1,211 @@
+:root {
+  --bg: #ffffff;
+  --ink: #111111;
+  --text: #333333;
+  --text-soft: #777777;
+  --text-faint: #999999;
+  --border: #cccccc;
+  --border-soft: #eeeeee;
+  --wine: #a62425;
+  --terracotta: #b85051;
+  --gold: #ba9e30;
+  --serif: Georgia, "游明朝", YuMincho, "Hiragino Mincho ProN", Meiryo, serif;
+  --radius: 5px;
+}
+
+/* This design deliberately commits to one light, paper-like world —
+   a warm near-white ground is part of the aesthetic, not an omission. */
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--serif);
+  font-size: 17px;
+  line-height: 1.75;
+  -webkit-font-smoothing: antialiased;
+}
+.wrap { max-width: 1120px; margin: 0 auto; padding: 0 2.5rem; }
+a { color: inherit; }
+img { max-width: 100%; display: block; }
+
+/* ---------- header ---------- */
+.site-header {
+  position: sticky; top: 0; z-index: 20;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border-soft);
+}
+.header-inner {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 1.4rem 2.5rem;
+}
+.brand {
+  font-size: 1.15rem; font-weight: 400; letter-spacing: 0.02em;
+  text-decoration: none; color: var(--ink);
+}
+.brand .dot { color: var(--wine); }
+.site-nav { display: flex; gap: 2rem; }
+.site-nav a {
+  font-size: 0.8rem; letter-spacing: 0.06em; text-transform: uppercase;
+  text-decoration: none; color: var(--wine); font-weight: 400;
+  transition: color 0.2s ease;
+}
+.site-nav a:hover { color: var(--terracotta); }
+
+/* ---------- hero ---------- */
+.hero { padding: 5rem 2.5rem 3rem; }
+.kicker {
+  font-size: 0.75rem; letter-spacing: 0.08em; font-weight: 700;
+  color: var(--gold); text-transform: uppercase; margin: 0 0 1.4rem;
+}
+h1 {
+  font-size: clamp(1.9rem, 4.2vw, 2.7rem); font-weight: 400;
+  line-height: 1.5; letter-spacing: -0.01em;
+  margin: 0 0 1.4rem; color: var(--ink); text-wrap: balance;
+}
+.lede { color: var(--text-soft); max-width: 56ch; font-size: 1rem; line-height: 1.8; margin: 0 0 2.6rem; }
+
+.stats { display: flex; flex-wrap: wrap; gap: 2.6rem; }
+.stat { padding-right: 2.6rem; border-right: 1px solid var(--border-soft); }
+.stat:last-child { border-right: none; }
+.stat .n {
+  font-size: 1.7rem; color: var(--wine); font-weight: 400;
+  font-variant-numeric: tabular-nums;
+}
+.stat .l { font-size: 0.72rem; color: var(--text-faint); margin-top: 0.2rem; letter-spacing: 0.02em; }
+
+/* ---------- gallery controls ---------- */
+.gallery-section { padding: 1rem 2.5rem 5rem; }
+.controls {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 1.4rem;
+  padding: 1.6rem 0; border-top: 1px solid var(--border-soft); border-bottom: 1px solid var(--border-soft);
+  margin-bottom: 2.4rem;
+  position: sticky; top: 65px; background: var(--bg); z-index: 10;
+}
+.view-toggle { display: inline-flex; gap: 1.4rem; }
+.view-btn {
+  font-family: var(--serif); font-size: 0.85rem; letter-spacing: 0.02em;
+  border: none; background: transparent; color: var(--text-soft);
+  padding: 0.1rem 0; cursor: pointer; border-bottom: 1px solid transparent;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+.view-btn:hover { color: var(--terracotta); }
+.view-btn.is-active { color: var(--wine); border-bottom-color: var(--wine); }
+
+.filters { display: flex; flex-wrap: wrap; gap: 0.2rem 1.1rem; }
+.chip {
+  font-family: var(--serif); font-size: 0.72rem; letter-spacing: 0.05em;
+  text-transform: uppercase; font-weight: 700;
+  border: none; background: transparent; color: var(--gold);
+  padding: 0.2rem 0; cursor: pointer; border-bottom: 1px solid transparent;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+.chip:hover { color: var(--terracotta); }
+.chip.is-active { color: var(--wine); border-bottom-color: var(--wine); }
+.chip .count { opacity: 0.75; margin-left: 0.35em; font-weight: 400; text-transform: none; }
+
+/* ---------- timeline groups ---------- */
+.day-group { margin-bottom: 3.4rem; }
+.day-heading {
+  display: flex; align-items: baseline; gap: 0.9rem; margin-bottom: 1.3rem;
+}
+.day-heading .date {
+  font-size: 1.15rem; color: var(--ink); font-weight: 400;
+}
+.day-heading .count {
+  font-size: 0.72rem; color: var(--text-faint); letter-spacing: 0.03em;
+}
+.day-heading::after {
+  content: ""; flex: 1; height: 1px; background: var(--border-soft);
+}
+
+.category-group { margin-bottom: 3.4rem; }
+.category-heading {
+  display: flex; align-items: baseline; gap: 0.9rem; margin-bottom: 1.3rem;
+}
+.category-heading .tagname { font-size: 1.15rem; font-weight: 400; color: var(--wine); }
+.category-heading .count { font-size: 0.72rem; color: var(--text-faint); letter-spacing: 0.03em; }
+.category-heading::after { content: ""; flex: 1; height: 1px; background: var(--border-soft); }
+
+/* ---------- grid & cards ---------- */
+.grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem 1.6rem;
+}
+@media (max-width: 860px) { .grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 560px) { .grid { grid-template-columns: 1fr; } }
+
+.card {
+  background: transparent; border: none; border-radius: 0;
+  overflow: visible; cursor: pointer;
+  display: flex; flex-direction: column; text-align: left;
+  padding: 0; font: inherit; color: inherit;
+}
+.card-thumb {
+  aspect-ratio: 4/3; overflow: hidden; background: var(--border-soft);
+  border: 1px solid var(--border-soft);
+}
+.card-thumb img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
+.card-body { padding: 0.9rem 0.1rem 0; }
+.card-time { font-size: 0.72rem; color: var(--text-faint); margin-bottom: 0.35rem; letter-spacing: 0.02em; }
+.card-title {
+  font-size: 0.98rem; font-weight: 400; margin: 0 0 0.55rem; line-height: 1.55;
+  transition: color 0.2s ease;
+}
+.card:hover .card-title { color: var(--terracotta); }
+.card-tags { display: flex; flex-wrap: wrap; gap: 0 0.7rem; }
+.card-tags span {
+  font-size: 0.68rem; letter-spacing: 0.04em; text-transform: uppercase;
+  font-weight: 700; color: var(--gold);
+}
+
+.empty-state { color: var(--text-soft); font-size: 0.9rem; padding: 2rem 0; text-align: center; }
+
+/* ---------- about / footer ---------- */
+.about { padding: 3rem 2.5rem 5rem; border-top: 1px solid var(--border-soft); }
+.about h2 { font-size: 1.4rem; font-weight: 400; margin-bottom: 1rem; color: var(--ink); }
+.about p { color: var(--text-soft); max-width: 64ch; }
+.site-footer {
+  border-top: 1px solid var(--border-soft); padding: 1.6rem 2.5rem 2.6rem;
+  font-size: 0.78rem; color: var(--text-faint);
+}
+
+/* ---------- lightbox ---------- */
+.lightbox {
+  position: fixed; inset: 0; z-index: 50;
+  background: rgba(17, 17, 17, 0.55);
+  display: flex; align-items: center; justify-content: center; padding: 2rem;
+}
+.lightbox[hidden] { display: none; }
+.lb-body {
+  background: var(--bg); border: 1px solid var(--border-soft); border-radius: 0; overflow: hidden;
+  max-width: min(920px, 100%); max-height: 100%; display: flex; flex-direction: column;
+  box-shadow: 0 12px 40px rgba(17, 17, 17, 0.14);
+}
+.lb-body img { width: 100%; max-height: 62vh; object-fit: contain; background: var(--border-soft); }
+.lb-info { padding: 1.6rem 1.8rem 1.9rem; overflow-y: auto; }
+.lb-meta { display: flex; align-items: center; justify-content: space-between; gap: 0.8rem; margin-bottom: 0.7rem; flex-wrap: wrap; }
+.lb-date { font-size: 0.78rem; color: var(--text-faint); }
+.lb-tags { display: flex; gap: 0.8rem; flex-wrap: wrap; }
+.lb-tags span {
+  font-size: 0.68rem; letter-spacing: 0.04em; text-transform: uppercase;
+  font-weight: 700; color: var(--gold);
+}
+.lb-info h3 { margin: 0 0 0.5rem; font-size: 1.2rem; font-weight: 400; color: var(--ink); }
+.lb-info p { margin: 0; color: var(--text-soft); font-size: 0.92rem; }
+
+.lb-close, .lb-nav {
+  position: absolute; background: transparent; color: var(--ink); border: none;
+  border-radius: 0; cursor: pointer; display: flex; align-items: center; justify-content: center;
+  font-family: var(--serif); transition: color 0.2s ease;
+}
+.lb-close { top: 1.3rem; right: 1.6rem; width: 2rem; height: 2rem; font-size: 1.5rem; line-height: 1; }
+.lb-nav { top: 50%; transform: translateY(-50%); width: 2.4rem; height: 2.4rem; font-size: 2rem; }
+.lb-prev { left: 0.6rem; }
+.lb-next { right: 0.6rem; }
+.lb-close:hover, .lb-nav:hover { color: var(--wine); }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}

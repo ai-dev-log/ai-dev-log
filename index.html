@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI DEV LOG — AI開発ログ ポートフォリオ</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="#top">AI DEV LOG<span class="dot">.</span></a>
+    <nav class="site-nav">
+      <a href="#gallery">TIMELINE</a>
+      <a href="#gallery" data-view-link="category">CATEGORY</a>
+      <a href="#about">ABOUT</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero wrap">
+    <p class="kicker">2026.07.07 — 07.12 · Claude Code / Desktop / Chrome 検証記録</p>
+    <h1>AIツールを触った跡を、<br>そのまま並べたログ。</h1>
+    <p class="lede">
+      完成品だけを見せるのではなく、Claude Codeのインストールでつまずいた瞬間から、Subagent・Skill・MCPを組み合わせられるようになるまでの過程をスクリーンショットで記録しています。
+    </p>
+    <div class="stats" id="stats"></div>
+  </section>
+
+  <section class="gallery-section wrap" id="gallery">
+    <div class="controls">
+      <div class="view-toggle" role="tablist" aria-label="表示切替">
+        <button type="button" class="view-btn is-active" data-view="timeline" role="tab" aria-selected="true">タイムライン</button>
+        <button type="button" class="view-btn" data-view="category" role="tab" aria-selected="false">カテゴリ</button>
+      </div>
+      <div class="filters" id="filters" aria-label="タグで絞り込み"></div>
+    </div>
+
+    <div id="galleryOutput"></div>
+    <p class="empty-state" id="emptyState" hidden>該当するスクリーンショットがありません。</p>
+  </section>
+
+  <section class="about wrap" id="about">
+    <h2>About this log</h2>
+    <p>
+      2026年7月、AI開発ツールを実際に触りながら学んだ記録です。README生成のような最初の一歩から、Subagentの並行実行、Skillの自作、Claude in Chromeでのブラウザ自動操作、note記事の執筆パイプライン構築まで、94枚のスクリーンショットに残っています。
+    </p>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">94 screenshots · 2026-07-07 – 2026-07-12</div>
+</footer>
+
+<div class="lightbox" id="lightbox" hidden>
+  <button type="button" class="lb-close" id="lbClose" aria-label="閉じる">×</button>
+  <button type="button" class="lb-nav lb-prev" id="lbPrev" aria-label="前へ">‹</button>
+  <button type="button" class="lb-nav lb-next" id="lbNext" aria-label="次へ">›</button>
+  <div class="lb-body">
+    <img id="lbImage" alt="">
+    <div class="lb-info">
+      <div class="lb-meta">
+        <span id="lbDate" class="lb-date"></span>
+        <div id="lbTags" class="lb-tags"></div>
+      </div>
+      <h3 id="lbTitle"></h3>
+      <p id="lbCaption"></p>
+    </div>
+  </div>
+</div>
+
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
